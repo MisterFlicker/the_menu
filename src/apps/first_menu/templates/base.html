@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'static.css' %}">
+    <title>Menu</title>
+</head>
+<body>
+{% load my_tags %}
+
+{% if main_menu %}
+    <ul>
+        {% for menu in main_menu %}
+            <li><a href="{% url 'get_menu' menu %}">{{ menu }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% elif tree %}
+    <ul><li><a href={% url 'base' %}>В главное меню</li>
+    </ul>
+    {% get_sub_menu tree %}
+{% endif %}
+
+
+</body>
+</html>

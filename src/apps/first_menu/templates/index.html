@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="{% static 'static.css' %}">
+    <title>Start page</title>
+</head>
+<body>
+    <ul>
+        {% if empty_menu %}
+            <li><a href="{% url 'fill_menu' %}">Заполнить меню данными по умолчанию</a></li>
+        {% else %}
+            <li><a href="{% url 'delete_menu' %}">Удалить все данные из моделей</a></li>
+        {% endif %}
+        <li><a href="{% url 'admin:index' %}">Административная панель</a></li>
+        <li><a href="{% url 'base' %}">Меню</a></li>
+    </ul>
+</body>
+</html>

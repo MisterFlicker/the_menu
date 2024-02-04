@@ -1,0 +1,11 @@
+{% load my_tags %}
+<ul>
+    {% for menu in sub_menu %}
+            {% for item in menu %}
+                <li><a href="{% url 'get_menu' item.url %}">{% multiply '-' forloop.parentloop.counter0 %}{{ item.name }}</a></li>
+                {% if item.about %}
+                    <p style="color: white;">{{ item.about }}</p>
+                {% endif %}
+            {% endfor %}
+    {% endfor %}
+</ul>

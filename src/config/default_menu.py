@@ -1,14 +1,15 @@
+"""Модуль, описывающий заполнение БД данными по умолчанию (частичной выборкой классификации млекопитающих)."""
 from apps.first_menu.models import SubMenu
 
 
 def fill_default_menu():
-    main_menu = SubMenu.objects.bulk_create([
+    SubMenu.objects.bulk_create([
         SubMenu(name='Грызуны', url='Грызуны'),
         SubMenu(name='Приматы', url='Приматы'),
         SubMenu(name='Хищные', url='Хищные'),
         SubMenu(name='Хоботные', url='Хоботные'),
     ])
-    sub_menu1 = SubMenu.objects.bulk_create([
+    SubMenu.objects.bulk_create([
         SubMenu(name='Свинковые', url='Грызуны/Свинковые', parent=SubMenu.objects.get(name='Грызуны')),
         SubMenu(name='Дикобразы', url='Грызуны/Дикобразы', parent=SubMenu.objects.get(name='Грызуны')),
         SubMenu(name='Мышиные', url='Грызуны/Мышиные', parent=SubMenu.objects.get(name='Грызуны')),
@@ -33,7 +34,7 @@ def fill_default_menu():
         ),
     ])
 
-    sub_menu2 = SubMenu.objects.bulk_create([
+    SubMenu.objects.bulk_create([
         SubMenu(name='Свинки', url='Грызуны/Свинковые/Свинки', parent=SubMenu.objects.get(name='Свинковые')),
         SubMenu(name='Водосвинки', url='Грызуны/Свинковые/Водосвинки', parent=SubMenu.objects.get(name='Свинковые')),
         SubMenu(
@@ -43,6 +44,7 @@ def fill_default_menu():
         ),
         SubMenu(
             name='Длиннохвостый дикобраз',
+            url='Грызуны/Дикобразы/Длиннохвостый_дикобраз',
             parent=SubMenu.objects.get(name='Дикобразы'),
             about='Длиннохвостый дикобраз не может ощетиниваться и трещать своими иглами.'
         ),
@@ -89,7 +91,7 @@ def fill_default_menu():
             parent=SubMenu.objects.get(name='Обезьянообразные')
         ),
         SubMenu(
-            name='Померанский_шпиц',
+            name='Померанский шпиц',
             url='Хищные/Псовые/Померанский_шпиц',
             parent=SubMenu.objects.get(name='Псовые'),
             about='Шпиц любит движение, прогулку и игру.'
@@ -102,7 +104,7 @@ def fill_default_menu():
         ),
     ])
 
-    sub_menu3 = SubMenu.objects.bulk_create([
+    SubMenu.objects.bulk_create([
         SubMenu(
             name='Бразильская свинка',
             url='Грызуны/Свинковые/Свинки/Бразильская_свинка',

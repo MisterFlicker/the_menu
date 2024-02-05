@@ -3,6 +3,7 @@ from .models import SubMenu
 
 
 def base(request):
+    """Функция, описывающая основное меню"""
     return render(
         request,
         'base.html',
@@ -11,6 +12,7 @@ def base(request):
 
 
 def get_menu(request, path):
+    """Функция, описывающая подменю."""
     path = path.replace('_', ' ')
     splitted_path = path.split('/')
     tree = []

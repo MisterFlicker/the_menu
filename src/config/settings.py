@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mtvtycq9!#e=6-4=0-+8i15naqd*q2v#66(%lj1ss+j+9l7c+o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.first_menu.apps.FirstMenuConfig',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -81,8 +82,8 @@ DATABASES = {
         'NAME': 'the_menu_db',
         'USER': 'the_menu_user',
         'PASSWORD': 'the_menu_pass',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 

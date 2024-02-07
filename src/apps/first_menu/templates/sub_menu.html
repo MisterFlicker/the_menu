@@ -3,7 +3,7 @@
     {% for menu in sub_menu %}
             {% for item in menu %}
                 {% if item.name == current_item %}
-                    <li style="margin-left: {% multiply forloop.parentloop.counter0 %}px"><a style="color: #95a5a6" href="{% url 'get_menu' item.url %}">{{ item.name }}</a></li>
+                    <li style="margin-left: {% multiply forloop.parentloop.counter0 %}px"><a style="color: #95a5a6">{{ item.name }}</a></li>
                     {% if item.about %}
                         <p style="color: white;">{{ item.about }}</p>
                 {% endif %}

@@ -4,15 +4,11 @@ services:
   django:
     build: .
     container_name: django
-    command: bash -c "python src/manage.py migrate && python src/manage.py createsuperuser --noinput && python src/manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python src/manage.py migrate && python src/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/the_menu
     ports:
       - 8000:8000
-    environment:
-      - DJANGO_SUPERUSER_PASSWORD=the_menu_pass
-      - DJANGO_SUPERUSER_USERNAME=the_menu_user
-      - DJANGO_SUPERUSER_EMAIL=the_menu_email@example.com
     depends_on:
       - db
   db:
